@@ -1,0 +1,37 @@
+# ── Entorno virtual ──────────────────────────────────────────
+.venv/
+
+# ── Python ───────────────────────────────────────────────────
+__pycache__/
+*.py[oc]
+*.pyc
+build/
+dist/
+wheels/
+*.egg-info
+
+# ── Jupyter ──────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Datos (descargar desde Kaggle, no versionar) ─────────────
+data/
+*.csv
+*.parquet
+*.json
+
+# ── Modelos entrenados ───────────────────────────────────────
+*.pt
+*.bin
+*.safetensors
+models/
+
+# ── Submissions ───────────────────────────────────────────────
+submissions/
+
+# ── Variables de entorno ─────────────────────────────────────
+.env
+.env.*
+
+# ── OS ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
