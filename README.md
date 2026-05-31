@@ -104,7 +104,19 @@ llm-classification-finetuning/
 ├── .gitignore
 └── README.md
 ```
+---
+## 📋 Hallazgos del EDA
 
+| # | Hallazgo | Implicancia |
+|---|---|---|
+| 1 | Dataset balanceado (35% / 34% / 31%) | No se requiere balanceo de clases |
+| 2 | 64 modelos únicos, dominados por GPT-4 y Claude | `model_a/b` puede ser feature útil |
+| 3 | **Verbosity bias: 61.6%** — usuarios prefieren respuestas más largas | `len_diff` será feature en baseline |
+| 4 | Prompts son listas serializadas (86.9% un turno, 13.1% multi-turno) | Usar solo último turno al tokenizar |
+| 5 | 5.743 prompts duplicados (máx. 101 apariciones) | **Usar GroupKFold** obligatorio |
+| 6 | Ningún modelo supera 50% win rate — GPT-4 lidera con ~55% | `model_a/b` como feature categórico |
+| 7 | Position bias: solo 0.7% | No requiere control por posición |
+| 8 | `len_diff` correlaciona débilmente con target (±0.17/0.18) | Features numéricas tienen techo bajo → fine-tuning semántico necesario |
 ---
 
 ## 👤 Autor
